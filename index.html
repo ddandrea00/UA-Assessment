@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>UA - Assessment</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <style>
+      .button {
+          border-radius: 1px ;
+          border-color: #888888;
+          box-shadow: 2px 2px #888888;
+      }
+
+      .button:hover {
+        box-shadow: none;
+        cursor: pointer;
+      }
+
+      .button:focus {
+        outline: none;
+      }
+
+      .container {
+        display: flex;
+        flex-direction: column;
+        flex: 1;
+        padding: 5px;
+        max-width: 500px;
+      }
+
+      .button-group {
+        max-width: 340px;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        margin-bottom: 15px;
+      }
+
+      .list {
+        width: 100%;
+      }
+
+      li {
+        list-style-type: none;
+        padding: 10px;
+        border: 1px solid #d9d9d9;
+        margin-bottom: 9px;
+        font-size: 14px;
+        font-family: sans-serif;
+        padding: 14px;
+      }
+    </style>
+
+  </head>
+  <body>
+    <div class="container">
+      <div class="button-group">
+        <div class="hello">
+          <button id="hello" class="button">Create Rows saying Hello</button>
+        </div>
+        <div class="goodbye">
+          <button id="goodbye" class="button">Create Rows saying Goodbye</button>
+        </div>
+      </div>
+      <div class="list" id="listId">
+      </div>
+    </div>
+    <script>
+    const list = document.getElementById('listId');
+    const buttons = document.querySelectorAll('button');
+
+     buttons.forEach(button => {
+        button.addEventListener('click', event => {
+          list.innerHTML = '';
+          for (x = 0; x < 5; x++) {
+            const helloLine = document.createElement('LI');
+
+            if (button.id === 'hello') {
+              helloLine.innerText = 'Hello';
+            } else if (button.id === 'goodbye') {
+              helloLine.innerText = 'Goodbye';
+            }
+            list.appendChild(helloLine);
+          }
+        })
+     });
+    </script>
+  </body>
+</html>
